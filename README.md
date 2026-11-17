@@ -1,8 +1,11 @@
-# dsh-pdf-translate
+# dsh-pdf-zh
 
 A [DeepSeek Harness](https://deepseek-harness.github.io/deepseek-harness/en/guide/quickstart) plugin that turns English
 scientific PDFs into Chinese — a layout-preserving bilingual PDF, a bilingual Markdown draft you can quote from, and a
 GPU-aware recommendation of which local translation model your card can actually run.
+
+> The npm package is `dsh-pdf-zh`. The earlier name `dsh-pdf-translate` on npm belongs to another account, so this
+> repository publishes under `dsh-pdf-zh` from 0.2.1 on; the repository name is unchanged.
 
 Registers three tools:
 
@@ -44,12 +47,15 @@ Two pins are load-bearing, and `lib/pdf2zh_launch.py` documents both:
 
 ## Install the plugin
 
+From npm, in the Harness: **Plugins → Add plugin** and enter `dsh-pdf-zh`.
+
+Or from a checkout:
+
 ```
 Plugins → Add plugin → pick this directory
 ```
 
-or from the CLI with the Plugin Manager pointed at the checkout directory. The bundle inserts one Loader row named
-`pdf-translate`.
+In both cases the bundle inserts one Loader row named `pdf-translate`.
 
 ## Choosing a local model
 

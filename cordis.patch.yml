@@ -1,6 +1,6 @@
 - insert:
     - id: pdf-translate
-      name: dsh-pdf-translate
+      name: dsh-pdf-zh
       config:
         pythonPath: ''
         localBaseUrl: ''

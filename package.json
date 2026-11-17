@@ -1,5 +1,5 @@
 {
-  "name": "dsh-pdf-translate",
+  "name": "dsh-pdf-zh",
   "version": "0.2.1",
   "description": "DeepSeek Harness plugin that translates English scientific PDFs into Chinese, with layout-preserving PDFs, bilingual Markdown drafts, and GPU-aware local translation-model recommendations",
   "type": "module",

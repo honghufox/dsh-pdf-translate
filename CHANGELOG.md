@@ -2,6 +2,10 @@
 
 ## 0.2.1
 
+The npm package is now published as **`dsh-pdf-zh`**: the name `dsh-pdf-translate` on npm is held by another
+account, so 0.2.1 is the first release under the new name. The repository, the Loader row id (`pdf-translate`)
+and the tools are unchanged.
+
 Fixes found while running the plugin end to end against a local `llama-server` (HY-MT 1.8B / 7B)
 on Windows.
 
