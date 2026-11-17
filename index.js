@@ -193,7 +193,8 @@ async function translateParagraphs(paragraphs, { engine, domain, target, glossar
   const model = channel.model ?? engine
   const out = new Array(paragraphs.length)
   const pending = []
-  paragraphs.forEach((text, index) => {
+  paragraphs.forEach((paragraph, index) => {
+    const text = paragraph.text
     const hit = cache[cacheKey(engine, model, text)]
     if (typeof hit === 'string') out[index] = hit
     else pending.push({ index, text })
@@ -395,6 +396,7 @@ tools.push({
   async execute(args, exec) {
     const { ctx } = exec
     const config = readConfig(exec)
+    const cwd = exec.cwd ?? process.cwd()
     const engine = selectEngine(args.engine, config)
     const want = args.to ?? 'md'
     const domain = args.domain ?? 'biomed'
@@ -446,7 +448,7 @@ tools.push({
           const python = resolvePython(config, cwd)
           if (!python) throw new Error('managed Python environment missing; run the PDF translation setup first')
           const helper = join(PACKAGE_DIR, 'lib', 'pdf2zh_launch.py')
-          const pdfArgs = [helper, pdf, '-li', 'en', '-lo', 'zh', '-o', outDir]
+          const pdfArgs = [helper, pdf, '-li', 'en', '-lo', 'zh-CN', '-o', outDir]
           if (args.pages) pdfArgs.push('-p', args.pages)
           if (args.force) pdfArgs.push('--ignore-cache')
           const env = { PDF2ZH_HOME: join(DATA_DIR, 'cache') }
@@ -454,13 +456,13 @@ tools.push({
             env.OPENAI_BASE_URL = config.localBaseUrl || 'http://127.0.0.1:9931/v1'
             env.OPENAI_API_KEY = 'sk-local'
             env.OPENAI_MODEL = config.localModel || 'hymt'
-            pdfArgs.push('-s', 'openai')
+            pdfArgs.push('-s', 'openai', '--prompt', join(PACKAGE_DIR, 'lib', 'zh_cn_prompt.txt'))
           } else if (engine === 'deepseek') {
             if (!config.deepseekApiKey) throw new Error('deepseekApiKey is required for the deepseek engine')
             env.OPENAI_BASE_URL = config.deepseekBaseUrl || 'https://api.deepseek.com/v1'
             env.OPENAI_API_KEY = config.deepseekApiKey
             env.OPENAI_MODEL = config.deepseekModel || 'deepseek-flash'
-            pdfArgs.push('-s', 'openai')
+            pdfArgs.push('-s', 'openai', '--prompt', join(PACKAGE_DIR, 'lib', 'zh_cn_prompt.txt'))
           } else {
             pdfArgs.push('-s', 'google')
           }
