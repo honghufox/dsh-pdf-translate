@@ -1,7 +1,6 @@
 {
   "name": "dsh-pdf-translate",
   "version": "0.2.1",
-  "private": true,
   "description": "DeepSeek Harness plugin that translates English scientific PDFs into Chinese, with layout-preserving PDFs, bilingual Markdown drafts, and GPU-aware local translation-model recommendations",
   "type": "module",
   "exports": {
@@ -11,10 +10,12 @@
   },
   "files": [
     "index.js",
+    "cordis.patch.yml",
     "lib",
     "locale/*.json",
     "docs",
-    "icon.svg"
+    "icon.svg",
+    "CHANGELOG.md"
   ],
   "keywords": [
     "deepseek-harness",
