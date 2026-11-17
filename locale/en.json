@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "PDF translation",
+    "description": "Translate English scientific papers into Chinese: layout-preserving bilingual PDFs, bilingual Markdown drafts, and a local translation-model recommender for this machine's GPU."
+  }
+}

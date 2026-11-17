@@ -1,0 +1,10 @@
+- insert:
+    - id: pdf-translate
+      name: dsh-pdf-translate
+      config:
+        pythonPath: ''
+        localBaseUrl: ''
+        localModel: hymt
+        deepseekApiKey: ''
+        deepseekBaseUrl: 'https://api.deepseek.com/v1'
+        deepseekModel: deepseek-flash

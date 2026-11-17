@@ -1,0 +1,44 @@
+{
+  "name": "dsh-pdf-translate",
+  "version": "0.2.0",
+  "private": true,
+  "description": "DeepSeek Harness plugin that translates English scientific PDFs into Chinese, with layout-preserving PDFs, bilingual Markdown drafts, and GPU-aware local translation-model recommendations",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "lib",
+    "locale/*.json",
+    "docs",
+    "icon.svg"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "pdf",
+    "translation",
+    "chinese",
+    "biomedical",
+    "pdf2zh",
+    "llama.cpp"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/honghufox/dsh-pdf-translate.git"
+  },
+  "homepage": "https://github.com/honghufox/dsh-pdf-translate#readme",
+  "bugs": {
+    "url": "https://github.com/honghufox/dsh-pdf-translate/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}
